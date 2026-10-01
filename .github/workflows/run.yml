@@ -1,0 +1,22 @@
+name: YouTube Automation Bot
+
+on:
+  workflow_dispatch: # Isse hum button daba kar manually test kar sakte hain
+  schedule:
+    - cron: '0 10 * * *' # Yeh roz subah 10 baje automatically chalega
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Run Python script
+        run: python main.py
+        
